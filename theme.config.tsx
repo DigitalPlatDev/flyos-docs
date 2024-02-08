@@ -20,6 +20,14 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'The FlyOS Project, Powered by DigitalPlat',
   },
+  banner: {
+    key: '2.0-release',
+    text: (
+      <a href="https://docs.flyos.us/" target="_blank">
+        🎉 FlyOS 3.0 is released. Read more →
+      </a>
+    )
+  }
 }
 
 export default config
