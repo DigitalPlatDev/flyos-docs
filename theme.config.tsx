@@ -2,16 +2,16 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <span>FlyOS Docs</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/EdwardLab/flyos',
   },
   chat: {
-    link: 'https://discord.com',
+    link: 'https://digitalplat.org/about-us/',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/DigitalPlatDev/flyos-docs',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'The FlyOS Project, Powered by DigitalPlat',
   },
 }
 

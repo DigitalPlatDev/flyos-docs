@@ -1,6 +1,6 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
+  "install": "Install FlyOS",
   "advanced": "Advanced (A Folder)",
   "about": {
     "title": "About",
@@ -9,7 +9,7 @@
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://digitalplat.org/about-us/",
     "newWindow": true
   }
 }
