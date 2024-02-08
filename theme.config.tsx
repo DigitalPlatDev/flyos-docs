@@ -2,14 +2,8 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  useNextSeoProps() {
-    return {
-      titleTemplate: '%s – FlyOS Docs'
-    }
-  },
+  titleTemplate: '%s – FlyOS Docs',
   logo: <span>FlyOS Docs</span>,
-  search: true,
-  customSearch: true,
   project: {
     link: 'https://github.com/EdwardLab/flyos',
   },
