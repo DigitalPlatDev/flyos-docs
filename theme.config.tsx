@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
+  titleTemplate: '%s – FlyOS Docs',
   logo: <span>FlyOS Docs</span>,
   project: {
     link: 'https://github.com/EdwardLab/flyos',
