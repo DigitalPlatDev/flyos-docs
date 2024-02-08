@@ -8,6 +8,8 @@ const config: DocsThemeConfig = {
     }
   },
   logo: <span>FlyOS Docs</span>,
+  search: true,
+  customSearch: true,
   project: {
     link: 'https://github.com/EdwardLab/flyos',
   },
