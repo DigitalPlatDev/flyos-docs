@@ -1,6 +1,47 @@
 import { Callout, Tabs } from 'nextra/components';
 
 # Install FlyOS
+## Unlock Bootloader and Flash Root
+If you want to deploy and Install FlyOS subsystem on your Android device, You must Unlock BL(bootloader) and Flash Root (like Magisk) first
+### Unlock bootloader
+Each brand has its own unique BL unlocking method. The following is a universal method. Please check your phone brand's support for more information.   
+
+export const TipsUnlock = () => {
+return (
+    <Callout emoji="⚠️">
+    Unlocking the Bootloader will erase your all data!
+    </Callout>
+  );
+};
+
+<TipsUnlock/>
+
+### Generic Steps:
++ **Enable Developer Options:**
+  + Go to Settings > About phone.
+  + Tap on "Build number" 7 times.
++ **Enable OEM Unlocking:**
+  + Go to Settings > Developer options.
+  + Toggle on "OEM unlocking".
++ **Enter Fastboot Mode:**
+  + Different devices may have different key combinations. Common ones include Volume Down + Power or Volume Up + Power.
++ **Unlock Bootloader:**
+  + Connect your device to the computer via USB.
+  + Open a command prompt or terminal on your computer.
+  + Type `fastboot oem unlock` and press Enter.
+  + Follow the on-screen instructions to unlock the bootloader.
+
+**Please make sure to check your phone's support to learn about the specific bootloader unlocking method in detail.**
+
+
+### Flash Root
+FlyOS requires root permissions. Most Android ROMs do not include root (SU binary) by default, so you need to obtain root permissions, such as using root tools or flashing SU binary like Magisk.    
+There are various ways to obtain root access. Some custom ROMs come with root privileges by default. If not, you can also use popular root tools such as Magisk.    
+[Magisk Installation Guide](https://topjohnwu.github.io/Magisk/install.html)
+
+<div>
+    <img src="/imgs/magisk.png" alt="Magisks" style={{ width: '50%', height: 'auto' }} />
+</div>
 
 ## Install "FlyOS Installer" on your PC
 
@@ -34,7 +75,7 @@ return (
 };
 
 <Tips1/>
-![Installer Image](./imgs/installer.png)
+![Installer Image](/imgs/installer.png)
   </Tabs.Tab>
 </Tabs>
 
@@ -44,7 +85,7 @@ return (
 export const Tips2 = () => {
 return (
     <Callout emoji="💡">
-    To make sure FlyOS is working and installing properly, we need to do a requirement test before installation
+    To ensure that FlyOS is working and installing properly, we need to perform a requirements test before installation.
     </Callout>
   );
 };
@@ -52,7 +93,7 @@ return (
 <Tips2/>
 
 ### Turn on USB debugging (ADB)
-![USB Debug MSG](./imgs/usbdebugmsg.png)
+![USB Debug MSG](/imgs/usbdebugmsg.png)
 
 #### On your device
 In Android document:    
@@ -60,10 +101,17 @@ Enable USB debugging in the device system settings under Developer options. You 
 
 Android 9 (API level 28) and higher: Settings > System > Advanced > Developer Options > USB debugging    
 Android 8.0.0 (API level 26) and Android 8.1.0 (API level 27): Settings > System > Developer Options > USB debugging    
-Android 7.1 (API level 25) and lower: Settings > Developer Options > USB debugging    
+Android 7.1 (API level 25) and lower: Settings > Developer Options > USB debugging  
+
+
+<div>
+    <img src="/imgs/adb_enable.png" alt="ADB" style={{ width: '50%', height: 'auto' }} />
+</div>
+
+
 ### Test Passed
 If the test passes, you can proceed with installing FlyOS
-![Test Passed Image](./imgs/testpass.png)
+![Test Passed Image](/imgs/testpass.png)
 ```text filename="Test Result" copy
 Check your device
 List of devices attached
@@ -85,13 +133,13 @@ T1030M128GB22532229     device
         This report is provided for reference purposes only and may not be entirely accurate or representative.
 
 Device Information Report
-Android Version: 13
+Android Version: 14
 Kernel Information: Linux flyos 5.10.136 #1 SMP PREEMPT Thu Jun 8 07:45:10 UTC 2023 aarch64 Toybox
 Arch: arm64-v8a
 Available Storage: 61.29 GB
 RAM: 7.56 GB
 
-Congratulations! This device meets the minimum requirements for running FlyOS, and you can install FlyOS now!
+Congratulations! This device meets the minimum requirements for running FlyOS, and you can now install FlyOS!
 ```
 ### Frequently problems
 #### Your device is not detected
@@ -99,11 +147,11 @@ Reconnect the USB cable, replace the data cable, Or check if USB debugging is en
 #### Your Android version is not supported
 Update Android System, Minimum support version Android 7.0 +
 #### Your device does not have root permission
-![noroot](./imgs/noroot.png)
+![noroot](/imgs/noroot.png)
 Root your device, any Root (SU binary) is supported. It is recommended to use [Magisk](https://github.com/topjohnwu/Magisk), [Installation Guide](https://topjohnwu.github.io/Magisk/install.html)    
 Make sure you have granted Root permissions to the application "Shell" in the Root Manager
 #### Your device Data partition is not writable
-It is necessary that the Data partition is writable. If not, please check your Android policy to ensure that it can be read and written.
+It is necessary for the Data partition to be writable. If not, please check your Android policy to ensure that it can be read and written.
 #### Your device System partition maybe not writable
 Writing to System is not required, but recommended. For newer Android versions, using the "super" partition may cause it to be unwritable. You can split super partition or use other methods to keep it writable.
 #### Currently only arm64-v8a is supported
@@ -112,3 +160,35 @@ Please use a different device, as FlyOS currently only supports 'arm64-v8a' arch
 Clean up the internal storage space to ensure it remains above 18GB. It is recommended to have over 20GB available.
 #### Your device does not have internet access
 Make sure your device is connected to internet then try again
+## Deploy and install the FlyOS subsystem
+export const Tips3 = () => {
+return (
+    <Callout type="warning" emoji="⚠️">
+    Once you've passed the test, you can start installing FlyOS! However, even though installing FlyOS won't erase your Android user data, it's still strongly recommended to backup your data to prevent any unexpected situations.
+    </Callout>
+  );
+};
+
+<Tips3/>
+Go to the main UI and enter option "2"    
+You still need to "run the device requirements test" before deployment, see [Run the Device Requirements Test](#run-the-device-requirements-test)    
+**Please keep the USB cable connected during installation**
+After running the device requirements test, you only need to answer a few simple questions to continue the installation.    
+## Choose Server
+![Install Choose FS Server](/imgs/install_server.png)
+Here, you need to specify the download server for the FlyOS subsystem file system (OS image). If you don't have the subsystem file system yet, we recommend using the Google Server (option 1) because it's the fastest and most stable. Alternatively, you can specify the download URL or provide the absolute path to the file system from local (option 5) (.tar.gz file).    
+![Install Choose Tools Server](/imgs/install_tools_server.png)
+Then, you need to provide the download server for the FlyOS Tools. If you don't have one, it is recommended to use the SourceForge Server (option 1) as it is the fastest and most stable. Alternatively, you can provide a local path (option 2) (.tar.gz file). Please note, do not download FlyOS Tools from untrusted websites as they may contain malware, which could potentially harm your device.    
+![Install Choose Manager Server](/imgs/install_manager_server.png)
+Finally, select the download path for FlyOS Manager. Again, if you don't have one, it is recommended to use the SourceForge Server (option 1) as it is the fastest and most stable. Alternatively, you can provide a local path (.apk file). Please ensure that the files are from trusted sources.    
+### Installing
+![Installing 1](/imgs/installing1.png)
+Installing Tools and copying file systems
+![Installing 2](/imgs/installing2.png)
+![Installing 3](/imgs/installing3.png)
+Installing FlyOS subsystem and deploying filesystem
+![Installing 4](/imgs/installing4.png)
+Installing FlyOS Manager and update subsystem
+![Installing 5](/imgs/installing5.png)
+Finally, we recommend you to restart your device to complete the final installation (optional).   
+**🎉🎉🎉OMG! If there are no errors here, then you have completed the installation!🎉🎉🎉**    

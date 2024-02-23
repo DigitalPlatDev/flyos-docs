@@ -1,7 +1,8 @@
 {
   "index": "Introduction",
   "install": "Install FlyOS",
-  "advanced": "Advanced (A Folder)",
+  "firstboot": "First Boot",
+  "features": "Features",
   "about": {
     "title": "About",
     "type": "page"
