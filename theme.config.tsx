@@ -1,7 +1,7 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
-const config: DocsThemeConfig = {
+const config: DocsThemeConfig & { description: string } = {
   useNextSeoProps() {
     return {
       titleTemplate: '%s - FlyOS Docs'
@@ -18,6 +18,16 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'The FlyOS Project, Powered by DigitalPlat',
   },
+  description: 'This is the documentation for FlyOS, a project powered by DigitalPlat.'
 }
 
-export default config
+export default {
+  ...config,
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="FlyOS Docs" />
+      <meta property="og:description" content="FlyOS Documentation" />
+    </>
+  )
+}
