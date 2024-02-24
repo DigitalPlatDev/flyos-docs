@@ -2,7 +2,16 @@
   "index": "Introduction",
   "install": "Install FlyOS",
   "firstboot": "First Boot",
-  "features": "Features",
+  "features":{
+    "dashboard": "Dashboard",
+    "desktop": "Desktop",
+    "winapps": "Run Windows applications",
+    "vscode": "Visual Studio Code"
+  },
+  "system":{
+      "service": "Service Manager",
+      "advanced": "Advanced Settings"
+  },
   "about": {
     "title": "About",
     "type": "page"
