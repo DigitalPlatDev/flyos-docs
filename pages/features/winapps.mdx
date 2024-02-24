@@ -1,0 +1,39 @@
+import { Callout, Tabs } from 'nextra/components';
+
+# Run Windows applications
+FlyOS comes pre-installed with the WINE and architecture emulator, which means you can run amd64/x86 Windows applications on your aarch64 Android device. It's really cool, isn't it?
+## Run winecfg
+
+export const Tipsdesktop = () => {
+return (
+    <Callout emoji="🤔">
+    WINE runs on the FlyOS desktop, so we will start FlyOS Desktop first
+    </Callout>
+  );
+};
+
+<Tipsdesktop/>
+
+
+Open Terminal First
+![open terminal](/imgs/desktop_terminal.png)    
+To run WINE, we need to use the command ```startwine<arch>```, which is a built-in command in FlyOS. For example, if you want to start an x86 application, you would type ```startwine86 <app name or path>``` in the terminal. For instance, typing ```startwine86 winecfg``` and hitting enter will launch winecfg.
+
+For example:
+```bash
+startwine86 winecfg
+```
+Enter    
+then you will see:    
+<div>
+    <img src="/imgs/wine.png" alt="wine" style={{ width: '50%', height: 'auto' }} />
+</div>
+Similarly, if you want to run amd64 apps, just replace ```startwine86``` to ```startwine64```!
+```bash
+startwine64 winecfg
+```
+## Run more apps?
+![wineapps](/imgs/wine_apps.png)
+Try running office?
+![office1](/imgs/office1.jpg)
+![office2](/imgs/office2.jpg)

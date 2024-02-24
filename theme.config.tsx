@@ -16,9 +16,8 @@ const config: DocsThemeConfig & { description: string } = {
   },
   docsRepositoryBase: 'https://github.com/DigitalPlatDev/flyos-docs',
   footer: {
-    text: 'The FlyOS Project, Powered by DigitalPlat',
+    text: 'The FlyOS Project, by DigitalPlat.org',
   },
-  description: 'This is the documentation for FlyOS, a project powered by DigitalPlat.'
 }
 
 export default {

@@ -12,12 +12,29 @@ You can manage the start, stop, and view logs of the FlyOS subsystem here
 <div>
     <img src="/imgs/usbdebug.png" alt="manager usb debugging" style={{ width: '50%', height: 'auto' }} />
 </div>
-Upon the initial launch of FlyOS, you may be prompted with "Allow USB Debugging." Please check "Always Allow from this computer" and click "Allow." This is an authorization for the FlyOS Framework and is an important part to ensure the proper functioning of FlyOS Framework and subsystem.
+Upon the initial launch of FlyOS, you may be prompted with "Allow USB Debugging." Please check "Always Allow from this computer" and click "Allow." This is an authorization for the FlyOS Framework and is an important part to ensure the proper functioning of FlyOS Framework and subsystem.    
 <div>
     <img src="/imgs/manager_started.png" alt="manager started" style={{ width: '50%', height: 'auto' }} />
 </div>
 
-After starting, open the FlyOS Dashboard by entering http://127.0.0.1:5000 or http://(device IP):5000 (on other device) (default port 5000) into your browser. This will take you to the FlyOS Dashboard and guide you through the subsystem setup
+After starting, open the FlyOS Dashboard by entering http://127.0.0.1:5000 or http://(device IP):5000 (on other device) (default port 5000) into your browser. This will take you to the FlyOS Dashboard and guide you through the subsystem setup    
+
+### Launch the subsystem through shell
+This method allows you to start the container via the command line. You can using ADB or a terminal emulator
+![shell boot](/imgs/shellboot_su.png)
+Then, start the container tools
+```sh
+sh /data/flyos/bin/flyos -h
+```
+![tools help](/imgs/tools_help.png)
+This is FlyOS Container Manager (Tools) help text    
+Now, type:
+```sh
+sh /data/flyos/bin/flyos -b
+```
+Which mean ```-b, --boot```, Boot FlyOS Container    
+Then, you can open the FlyOS Dashboard by entering http://127.0.0.1:5000 or http://(device IP):5000 (on other device) (default port 5000) into your browser. This will take you to the FlyOS Dashboard and guide you through the subsystem setup    
+## Setup FlyOS
 ![Setup Welcome](/imgs/setup_welcome.png)
 ![Setup](/imgs/setup_languages.png)
 ![Setup](/imgs/setup_timezone.png)
