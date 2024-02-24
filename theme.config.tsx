@@ -12,9 +12,6 @@ const config: DocsThemeConfig & { description: string } = {
   project: {
     link: 'https://github.com/EdwardLab/flyos'
   },
-  chat: {
-    link: 'https://digitalplat.org/about-us/'
-  },
   docsRepositoryBase: 'https://github.com/DigitalPlatDev/flyos-docs',
   footer: {
     text: 'The FlyOS Project, by DigitalPlat.org'
